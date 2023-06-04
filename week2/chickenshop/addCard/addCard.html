@@ -5,8 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>새 상품 추가</title>
+
+    <link rel="stylesheet" href="addCard.css">
+    <script type="module" defer src="addCard.js"></script>
 </head>
 <body>
-    어쩌구
+    <section class="addCard_wrapper">
+        <header>🍗 메뉴를 추가해보세요 🍗</header>
+        <form>
+            <div>
+                <label for="menu_name">메뉴명</label>
+                <input type="text" id="menu_name">
+            </div>
+            <div>
+                <label for="menu_tag">해시태그 (,로구분) </label>
+                <input type="text" id="menu_tag">
+            </div>
+            <div>
+                <label for="menu_img">메뉴 이미지</label>
+                <input type="file" id="menu_img" accept="image/*" required>
+            </div>
+            <div>
+                <label for="menu_img">카테고리</label>
+                <select id="menu_category">
+                    <option>==선택==</option>
+                    <option>양념</option>
+                    <option>치킨킹</option>
+                    <option>구이</option>
+                </select>
+            </div>
+        </form>
+        <button type="button">메뉴추가</button>
+    </section>
 </body>
 </html>
