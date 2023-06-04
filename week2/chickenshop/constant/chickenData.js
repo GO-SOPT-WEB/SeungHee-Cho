@@ -1,5 +1,6 @@
 export const menuData = [
     {
+        id: 0,
         name: "후라이드",
         tags: [
             "명불허전",
@@ -10,6 +11,7 @@ export const menuData = [
         value : "전체"
     },
     {
+        id: 1,
         name: "양념",
         tags: [
             "맵단맵단"
@@ -18,6 +20,7 @@ export const menuData = [
         value : "양념"
     },
     {
+        id: 2,
         name: "뿌링클",
         tags: [
             "뿌링뿌링",
@@ -27,6 +30,7 @@ export const menuData = [
         value : "양념"
     },
     {
+        id: 3,
         name: "맛초킹",
         tags: [
             "고추간장",
@@ -39,6 +43,7 @@ export const menuData = [
         value : "치킨킹"
     },
     {
+        id: 4,
         name: "레드킹",
         tags: [
             "화끈매콤",
@@ -48,6 +53,7 @@ export const menuData = [
         value : "치킨킹"
     },
     {
+        id: 5,
         name: "레드킹 폭립",
         tags: [
             "폭립",
@@ -57,6 +63,7 @@ export const menuData = [
         value : "치킨킹"
     },
     {
+        id: 6,
         name: "직화구이",
         tags: [
             "구움",
@@ -66,6 +73,7 @@ export const menuData = [
         value : "구이"
     },
     {
+        id: 7,
         name: "치퐁당",
         tags: [
             "새우",
@@ -76,6 +84,7 @@ export const menuData = [
         value : "양념"
     },
     {
+        id: 8,
         name: "포테킹",
         tags: [
             "감자팡팡"
