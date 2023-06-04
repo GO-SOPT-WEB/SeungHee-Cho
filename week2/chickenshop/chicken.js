@@ -1,4 +1,4 @@
-import { menuData } from "./constant/chickenData";
+import { menuData } from "./constant/chickenData.js";
 
 function createItem(data) {
     
@@ -65,10 +65,8 @@ function createItem(data) {
     return item;
 }
 
-
 //화면 띄우는 함수
 function refresh() {
-    // 심화과제 시 애니메이션 여기에 추가하기 
     document.getElementById("card_section").innerHTML = "";
     for (const oneData of menuData) {
         if (document.getElementById("전체").checked || document.getElementById(oneData.value).checked) {
