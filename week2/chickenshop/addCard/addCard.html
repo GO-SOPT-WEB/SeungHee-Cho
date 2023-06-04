@@ -24,10 +24,10 @@
             <div>
                 <label for="menu_img">카테고리</label>
                 <select id="menu_category">
-                    <option>==선택==</option>
-                    <option>양념</option>
-                    <option>치킨킹</option>
-                    <option>구이</option>
+                    <option default>==선택==</option>
+                    <option value="양념">양념</option>
+                    <option value="치킨킹">치킨킹</option>
+                    <option value="구이">구이</option>
                 </select>
             </div>
             <div>
@@ -38,7 +38,7 @@
                 <div id="img_container">no<br/>image</div>
             </div>
         </form>
-        <button type="button">메뉴추가</button>
+        <button type="button" id="add_btn">메뉴추가</button>
     </section>
 </body>
 </html>
