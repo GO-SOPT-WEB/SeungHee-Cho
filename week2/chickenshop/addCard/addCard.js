@@ -15,12 +15,11 @@ document.getElementById('menu_img').addEventListener('change',function(e) {
 document.getElementById('add_btn').addEventListener('click',function(e){
     // 메뉴 추가 버튼 클릭 시, localStorage에 저장후 메인페이지로 이동
 
-    const localData = window.localStorage.getItem('dataKey');
-    const chickenData = localData===null? menuData : localData;
+    const localData = JSON.parse(localStorage.getItem('local_data'));
 
-    chickenData.push(
+    localData.push(
         {
-            id:menuData.length,
+            id: menuData.length,
             name: document.getElementById('menu_name').value,
             tags: document.getElementById('menu_tag').value.split(','),     // 태그 분리 
             img : document.getElementById('img_container').firstChild.src,
@@ -28,8 +27,7 @@ document.getElementById('add_btn').addEventListener('click',function(e){
         }
     )
 
-    
-    window.localStorage.setItem('dataKey', chickenData);
+    localStorage.setItem("local_data", JSON.stringify(localData));
 
 
     window.location.href='chicken.html';
