@@ -141,9 +141,23 @@ main {
     margin-left: 0.7rem;
 }
 
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 #card_section {
     display: flex;
     flex-wrap: wrap;
+
+    animation: fadeInUp 2s;
+
 }
 
 @media (max-width: 852px) {
@@ -262,3 +276,5 @@ main {
 
     cursor: pointer;
 }
+
+
