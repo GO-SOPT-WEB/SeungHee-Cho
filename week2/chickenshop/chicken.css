@@ -1,15 +1,6 @@
 @import "reset.css";
 @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
 
-/*
-CSS 순서 정리!
-1. 객체의 노출 여부와 표현 방식 (display, list style)
-2. 위치와 좌표 (position 등)
-3. 크기와 여백 (width,height,padding,margin)
-4. 윤곽과 배경 (border,background)
-5. 글자와 정렬 (color,font,text~)
-6. 내용 (content)
-*/
 
 body {
     font-family: 'Song Myung', serif;
