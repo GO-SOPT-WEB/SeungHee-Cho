@@ -1,4 +1,3 @@
-import { menuData } from "../constant/chickenData.js";
 
 document.getElementById('menu_img').addEventListener('change',function(e) {
     let file = e.target.files[0];
@@ -16,7 +15,10 @@ document.getElementById('menu_img').addEventListener('change',function(e) {
 document.getElementById('add_btn').addEventListener('click',function(e){
     // 메뉴 추가 버튼 클릭 시, localStorage에 저장후 메인페이지로 이동
 
-    menuData.push(
+    const localData = window.localStorage.getItem('dataKey');
+    const chickenData = localData===null? menuData : localData;
+
+    chickenData.push(
         {
             id:menuData.length,
             name: document.getElementById('menu_name').value,
@@ -27,7 +29,9 @@ document.getElementById('add_btn').addEventListener('click',function(e){
     )
 
     
+    window.localStorage.setItem('dataKey', chickenData);
 
-    //window.location.href='chicken.html';
+
+    window.location.href='chicken.html';
 
 })
