@@ -67,10 +67,10 @@ function createItem(data) {
 
 //화면 띄우는 함수
 function refresh() {
-    localStorage.getItem("local_data") === null &&
-    localStorage.setItem("local_data", JSON.stringify(menuData));
+    localStorage.getItem("data") === null &&
+    localStorage.setItem("data", JSON.stringify(menuData));
 
-    const chickenData = JSON.parse(localStorage.getItem("local_data")); 
+    const chickenData = JSON.parse(localStorage.getItem("data")); 
 
     document.getElementById("card_section").innerHTML = "";
     for (const oneData of chickenData) {

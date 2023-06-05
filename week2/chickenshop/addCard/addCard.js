@@ -16,20 +16,19 @@ document.getElementById('menu_img').addEventListener('change',function(e) {
 document.getElementById('add_btn').addEventListener('click',function(e){
     // 메뉴 추가 버튼 클릭 시, localStorage에 저장후 메인페이지로 이동
 
-    const localData = JSON.parse(localStorage.getItem('local_data'));
+    const localData = JSON.parse(localStorage.getItem('data'));
 
     localData.push(
         {
             id: localData.length,
             name: document.getElementById('menu_name').value,
             tags: document.getElementById('menu_tag').value.split(','),     // 태그 분리 
-            img : document.getElementById('img_data').src,
+            img : './img/양념.png',
             value : document.getElementById('menu_category').value
         }
     )
 
-    localStorage.setItem("local_data", JSON.stringify(localData));
-
+    localStorage.setItem("data", JSON.stringify(localData));
 
     window.location.href='../chicken.html';
 
