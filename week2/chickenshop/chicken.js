@@ -67,8 +67,13 @@ function createItem(data) {
 
 //화면 띄우는 함수
 function refresh() {
+    localStorage.getItem("local_data") === null &&
+    localStorage.setItem("local_data", JSON.stringify(menuData));
+
+    const chickenData = JSON.parse(localStorage.getItem("local_data")); 
+
     document.getElementById("card_section").innerHTML = "";
-    for (const oneData of menuData) {
+    for (const oneData of chickenData) {
         if (document.getElementById("전체").checked || document.getElementById(oneData.value).checked) {
             const oneItem = createItem(oneData);
             document.getElementById("card_section").appendChild(oneItem);

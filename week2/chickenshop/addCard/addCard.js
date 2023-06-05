@@ -6,6 +6,7 @@ document.getElementById('menu_img').addEventListener('change',function(e) {
     container.textContent = ""
 
     let newImage = document.createElement("img");
+    newImage.id = 'img_data';
     newImage.src = URL.createObjectURL(file);
     newImage.style.width = "100%";
     newImage.style.height = "100%";
@@ -19,10 +20,10 @@ document.getElementById('add_btn').addEventListener('click',function(e){
 
     localData.push(
         {
-            id: menuData.length,
+            id: localData.length,
             name: document.getElementById('menu_name').value,
             tags: document.getElementById('menu_tag').value.split(','),     // 태그 분리 
-            img : document.getElementById('img_container').firstChild.src,
+            img : document.getElementById('img_data').src,
             value : document.getElementById('menu_category').value
         }
     )
@@ -30,6 +31,6 @@ document.getElementById('add_btn').addEventListener('click',function(e){
     localStorage.setItem("local_data", JSON.stringify(localData));
 
 
-    window.location.href='chicken.html';
+    window.location.href='../chicken.html';
 
 })
