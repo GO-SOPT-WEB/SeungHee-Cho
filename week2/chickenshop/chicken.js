@@ -67,6 +67,8 @@ function createItem(data) {
 
 //화면 띄우는 함수
 function refresh() {
+    document.getElementById("전체").checked = true;
+
     localStorage.getItem("data") === null &&
     localStorage.setItem("data", JSON.stringify(menuData));
 
