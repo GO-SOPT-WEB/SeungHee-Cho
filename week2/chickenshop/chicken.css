@@ -144,7 +144,7 @@ main {
 @keyframes fadeInUp {
     0% {
         opacity: 0;
-        transform: translateY(20%);
+        transform: translateY(10%);
     }
     to {
         opacity: 1;
@@ -155,9 +155,10 @@ main {
 #card_section {
     display: flex;
     flex-wrap: wrap;
+}
 
-    animation: fadeInUp 2s;
-
+.anim {
+    animation: fadeInUp 1.3s;
 }
 
 @media (max-width: 852px) {

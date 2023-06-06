@@ -67,6 +67,11 @@ function createItem(data) {
 
 //화면 띄우는 함수
 function refresh() {
+    document.getElementById("card_section").classList.add('anim');
+    setTimeout(() => {
+        document.getElementById("card_section").classList.remove('anim');
+    }
+    , 2000);
 
     localStorage.getItem("data") === null &&
     localStorage.setItem("data", JSON.stringify(menuData));
