@@ -67,7 +67,6 @@ function createItem(data) {
 
 //화면 띄우는 함수
 function refresh() {
-    document.getElementById("전체").checked = true;
 
     localStorage.getItem("data") === null &&
     localStorage.setItem("data", JSON.stringify(menuData));
@@ -113,7 +112,7 @@ for (const checkTag of checkTags) {
     checkTag.addEventListener('change', function(e) {
         if (e.target.checked) {
             document.getElementById("card_tags").appendChild(createMenuTag(e.target.id));
-                refresh();
+            refresh();
         }
         else {
             const deleteMenu = document.getElementById(`${e.target.id}_checked`);
@@ -123,5 +122,6 @@ for (const checkTag of checkTags) {
     });
 }
 
-
-refresh();
+window.onload = () => {
+    refresh();
+}
