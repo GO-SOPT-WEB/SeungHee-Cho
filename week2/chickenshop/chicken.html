@@ -7,6 +7,7 @@
     <title>chicken shop</title>
 
     <link rel="stylesheet" href="chicken.css">
+    <script type="module" defer src="chicken.js"></script>
 </head>
 <body>
     <header id="top_header">
@@ -18,7 +19,7 @@
             <nav class="right_nav">
                 <div id="right_nav_title">메뉴</div>
                 <ul>
-                    <li class="right_nav_menu"> 새 상품 추가 </li>
+                    <li class="right_nav_menu" onclick="location.href='addCard/addCard.html';"> 새 상품 추가 </li>
                     <hr color="black" width="100%" size="0.5px"/>
                     <li class="right_nav_menu">찜 목록</li>
                     <hr color="black" width="100%" size="0.5px"/>
@@ -33,156 +34,28 @@
             <header>종류</header>
             <ul>
                 <li class="menu">
-                    <input type="checkbox" id="all_check">
-                    <label for="all_check">전체</label>
+                    <input type="checkbox" id="전체">
+                    <label for="전체" class="menu_check">전체</label>
                 </li>
                 <li class="menu">
-                    <input type="checkbox">
-                    <label for="all_check">BHC</label>
+                    <input type="checkbox" id="양념">
+                    <label for="양념" class="menu_check">양념</label>
                 </li>
                 <li class="menu">
-                    <input type="checkbox">
-                    <label for="all_check">처갓집</label>
+                    <input type="checkbox" id="치킨킹">
+                    <label for="치킨킹" class="menu_check">치킨킹</label>
                 </li>
                 <li class="menu">
-                    <input type="checkbox">
-                    <label for="all_check">교촌</label>
+                    <input type="checkbox" id="구이">
+                    <label for="구이" class="menu_check">구이</label>
                 </li>
             </ul>
         </nav>
 
-        
-    
-        <section id="card_section">
-            <article class="item">
-                <header class="item_name">
-                    후라이드
-                </header>
-                <ul class="item_tag_box">
-                    <li class="item_tag">명불허전</li>
-                    <li class="item_tag">바삭함</li>
-                    <li class="item_tag">고소함</li>
-                </ul>
-                <div class="item_img">
-                    <img src="./img/후라이드.png" alt="후라이드 사진"/>
-                </div>
-                <i class="item_like"></i>
-            </article>
-    
-            <article class="item">
-                <header class="item_name">
-                    양념
-                </header>
-                <ul class="item_tag_box">
-                    <li class="item_tag">맵단맵단</li>
-                </ul>
-                <div class="item_img">
-                    <img src="./img/양념.png" alt="양념 사진"/>
-                </div>
-                <i class="item_like"></i>
-            </article>
-    
-            <article class="item">
-                <header class="item_name">
-                    뿌링클
-                </header>
-                <ul class="item_tag_box">
-                    <li class="item_tag">뿌링뿌링</li>
-                    <li class="item_tag">치즈가루</li>
-                </ul>
-                <div class="item_img">
-                    <img src="./img/뿌링클.png" alt="뿌링클 사진"/>
-                </div>
-                <i class="item_like"></i>
-            </article>
-    
-            <article class="item">
-                <header class="item_name">
-                    맛초킹
-                </header>
-                <ul class="item_tag_box">
-                    <li class="item_tag">고추간장</li>
-                    <li class="item_tag">맵짠</li>
-                    <li class="item_tag">주인장최애임</li>
-                    <li class="item_tag">사랑해요맛초킹</li>
-                    <li class="item_tag">맛초킹먹으러갈사람</li>
-                </ul>
-                <div class="item_img">
-                    <img src="./img/맛초킹.png" alt="맛초킹 사진"/>
-                </div>
-                <i class="item_like"></i>
-            </article>
-    
-            <article class="item">
-                <header class="item_name">
-                    레드킹
-                </header>
-                <ul class="item_tag_box">
-                    <li class="item_tag">화끈매콤</li>
-                    <li class="item_tag">마늘토핑</li>
-                </ul>
-                <div class="item_img">
-                    <img src="./img/레드킹.png" alt="레드킹 사진"/>
-                </div>
-                <i class="item_like"></i>
-            </article>
-    
-            <article class="item">
-                <header class="item_name">
-                    레드킹 폭립
-                </header>
-                <ul class="item_tag_box">
-                    <li class="item_tag">폭립</li>
-                    <li class="item_tag">신메뉴</li>
-                </ul>
-                <div class="item_img">
-                    <img src="./img/레드킹폭립.png" alt="레드킹폭립 사진"/>
-                </div>
-                <i class="item_like"></i>
-            </article>
-    
-            <article class="item">
-                <header class="item_name">
-                    직화구이
-                </header>
-                <ul class="item_tag_box">
-                    <li class="item_tag">구움</li>
-                    <li class="item_tag">고추장</li>
-                </ul>
-                <div class="item_img">
-                    <img src="./img/직화구이.png" alt="직화구이 사진"/>
-                </div>
-                <i class="item_like"></i>
-            </article>
-    
-            <article class="item">
-                <header class="item_name">
-                    치퐁당
-                </header>
-                <ul class="item_tag_box">
-                    <li class="item_tag">새우</li>
-                    <li class="item_tag">마늘</li>
-                    <li class="item_tag">후레이크</li>
-                </ul>
-                <div class="item_img">
-                    <img src="./img/치퐁당.png" alt="치퐁당 사진"/>
-                </div>
-                <i class="item_like"></i>
-            </article>
-    
-            <article class="item">
-                <header class="item_name">
-                    포테킹
-                </header>
-                <ul class="item_tag_box">
-                    <li class="item_tag">감자팡팡</li>
-                </ul>
-                <div class="item_img">
-                    <img src="./img/포테킹.png" alt="포테킹 사진"/>
-                </div>
-                <i class="item_like"></i>
-            </article>
-    
+        <section>
+            <ul id="card_tags"></ul>
+            <section id="card_section"></section>
+
         </section>
     </main>
 

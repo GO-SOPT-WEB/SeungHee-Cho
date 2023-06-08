@@ -1,6 +1,6 @@
 @import "reset.css";
 @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
 
 body {
     font-family: 'Song Myung', serif;
@@ -26,7 +26,7 @@ body {
 
 #top_header > h1 {
     font-size: 2rem;
-    text-shadow: 5px 5px 5px gray;
+    text-shadow: 0.3rem 0.3rem 0.3rem gray;
 }
 
 #hamburger > img {
@@ -44,7 +44,7 @@ main {
 .left_nav {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.7rem;
     flex: none;
 
     width:200px;
@@ -53,8 +53,8 @@ main {
     margin:0.8rem;
 
     background-color: rgb(255, 209, 70);
-    border-radius: 15px;
-    box-shadow: 7px 7px 5px rgb(148, 98, 50);
+    border-radius: 1rem;
+    box-shadow: 0.5rem 0.5rem 0.3rem rgb(148, 98, 50);
 
     font-size: 1.3rem;
 }
@@ -67,7 +67,7 @@ main {
     margin-bottom: 0.5rem;
 
     background-color: white;
-    border-radius: 10px;
+    border-radius: 0.7rem;
 
     font-size: 1rem;
 }
@@ -121,9 +121,44 @@ main {
     margin-right: 0.5rem;
 }
 
+
+#card_tags {
+    display: flex;
+    
+    margin-left: 1rem;
+}
+.menu_tag {
+    display: flex;
+
+    width: fit-content;
+    padding: 0.5rem;
+    margin-right: 1rem;
+
+    background-color: aquamarine;
+    border-radius: 0.8rem;
+}
+.menu_tag > button {
+    margin-left: 0.7rem;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 #card_section {
     display: flex;
     flex-wrap: wrap;
+}
+
+.anim {
+    animation: fadeInUp 1.3s;
 }
 
 @media (max-width: 852px) {
@@ -145,8 +180,8 @@ main {
     margin: 0.8rem;
 
     background-color: white;
-    border-radius: 15px;
-    box-shadow: 7px 7px 5px gray;
+    border-radius: 1rem;
+    box-shadow: 0.5rem 0.5rem 0.3rem gray;
 
     text-align: center;
 }
@@ -158,8 +193,15 @@ main {
     font-weight: bold;
 }
 
+.item_tag_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 65%;
+}
+
 .item_tag_box {
-    width:70%;
     height: 1rem;
 
     overflow:hidden;
@@ -176,8 +218,15 @@ main {
     content:'#';
 }
 
-.item_img > img {
-    width:80%;
+.item_tag_plus {
+    font-size: 1.3rem;
+    margin-left: 0.5rem;
+
+    cursor: pointer;
+}
+
+.item > img {
+    width:15rem;
     margin-bottom: 2rem;
 }
 
@@ -198,3 +247,35 @@ main {
 .item_like:hover::before {
     content: '❤️‍🔥';
 }
+
+.item > section {
+    display:none;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+
+    position: absolute;
+
+    width: 80%;
+    height: 80%;
+    
+    background-color: rgb(255, 241, 198);
+    border-radius: 1rem;
+    box-shadow: 0rem 0rem 2rem black;
+}
+
+.item_modal_close {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    margin-right: 1rem;
+
+    font-family: 'Dongle', sans-serif;
+    color: black;
+    font-size: 3rem;
+
+    cursor: pointer;
+}
+
+
