@@ -57,9 +57,19 @@ function refreshTodo() {
     }
 }
 
-function handleModalBtn(e) {
-    const categoryTag = e.target.parentNode.parentNode;
-    plusTodo(categoryTag.id, document.getElementById('add_todo').value);
+// 대체왜??? 여러번 호출???
+function handleModalBtn(categoryTagId, todoList, userValue) {
+    const values = [];
+    for (const i of todoList) {
+        values.push(i.task);
+    }
+    console.log(values);
+
+    if (values.includes(userValue)) {
+        console.log("중복된 할일은 추가할 수 없습니다.");
+    } else {
+        plusTodo(categoryTagId, userValue);
+    }
     document.getElementById('modal').style.display = 'none';
 }
 
@@ -69,7 +79,11 @@ for (const plusBtn of plusBtns) {
         document.getElementById('modal').style.display = 'flex';
 
         const modalBtn = document.getElementById('modal_btn');
-        modalBtn.addEventListener('click', ()=>{handleModalBtn(e)});
+        modalBtn.addEventListener('click', ()=>{
+            const categoryTagId = e.target.parentNode.parentNode.id;
+            const todoList = [...TODO_DATA[categoryTagId[categoryTagId.length-1]-1].todo];  // 복사 
+            const userValue = document.getElementById('add_todo').value;
+            handleModalBtn(categoryTagId, todoList, userValue)});
 
     });
 }
