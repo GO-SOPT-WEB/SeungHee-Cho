@@ -7,13 +7,15 @@
     <title>MyCategory</title>
 
     <link rel="stylesheet" href="todo.css">
+    <link rel="stylesheet" href="mycategory.css">
 </head>
-<body>
+<body class="my_body">
     <header>
         <h1>✨ WEB TO DO MATE ✨</h1>
     </header>
-    <main>
-
+    <main class="my_wrapper">
+        <h2 class="my_title"> 📌 나의 카테고리 📌 </h2>
+        <section id="category_list"></section>
     </main>
     <footer>
         <nav class="footer_btn" onclick="location.href='todo.html'">
@@ -25,6 +27,6 @@
             <div class="btntext">MY</div>
         </nav>
     </footer>
-    <script type="text/javascript" src="mycategory.js"></script>
+    <script type="module" src="mycategory.js"></script>
 </body>
 </html>
