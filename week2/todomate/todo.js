@@ -22,7 +22,6 @@ function createTodo(index, todo, todoindex) {
     todoCheckbox.type = "checkbox";
     todoCheckbox.id = `category${index}_task${todoindex}`; 
     todoCheckbox.addEventListener('change', function(e) {
-        const checkId = e.target.id;
         if (e.target.checked) {
             completeCount++;
             refreshCal();
@@ -48,14 +47,14 @@ function plusTodo(category, todo) { //category : article 태그의 id, todo : �
     const index = category[category.length-1]; //category가 몇번째 TODO_DATA에서 몇번째 index인지 
     todobox.appendChild(createTodo(index,todo, TODO_DATA[index-1].todo.length+1));
 
-    TODO_DATA[index-1].todo.push(todo);
+    TODO_DATA[index-1].todo.push({task : todo, done: false});
     refreshCal();  
 }
 
 function refreshTodo() {
     for (let i = 1; i<=TODO_DATA.length; i++) {
         for (let j = 0; j < TODO_DATA[i-1].todo.length; j++) {
-            const oneTodo = createTodo(i, TODO_DATA[i-1].todo[j], j+1);
+            const oneTodo = createTodo(i, TODO_DATA[i-1].todo[j].task, j+1);
             document.getElementById(`category${i}`).appendChild(oneTodo);
         }
     }
