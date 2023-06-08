@@ -145,7 +145,7 @@ footer {
     align-items: center;
     gap: 2rem;
 
-    position: sticky;
+    position: fixed;
     bottom: 0;
 
     height: 10vh;
