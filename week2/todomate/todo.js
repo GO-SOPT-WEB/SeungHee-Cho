@@ -1,16 +1,18 @@
 import {TODO_DATA} from './constants/todoData.js';
 
-let completeCount = 0;
 
 function refreshCal() {
     const selectedLeft = document.getElementById('selected_left');
     let leftCount = 0;
 
+    // 'done:false' 인 task의 개수 
     for (const item of TODO_DATA) {
-        leftCount += item.todo.length;
+        for (const task of item.todo) {
+            leftCount = task.done? leftCount: leftCount+1; 
+        }
     }
 
-    selectedLeft.textContent = leftCount - completeCount;
+    selectedLeft.textContent = leftCount;
 }
 
 
@@ -22,13 +24,8 @@ function createTodo(index, todo, todoindex) {
     todoCheckbox.type = "checkbox";
     todoCheckbox.id = `category${index}_task${todoindex}`; 
     todoCheckbox.addEventListener('change', function(e) {
-        if (e.target.checked) {
-            completeCount++;
-            refreshCal();
-        } else {
-            completeCount--;
-            refreshCal();
-        }
+        TODO_DATA[index-1].todo[todoindex-1].done = e.target.checked? true : false;
+        refreshCal();
     });
 
     todoLabel.htmlFor = `category${index}_task${todoindex}`;
