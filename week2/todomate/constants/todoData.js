@@ -1,11 +1,13 @@
 export const TODO_DATA = [
     {
+        id : 0,
         title : "SCHEDULE",
         todo : [
             { task : "늘어지지 말고 카공가기", done : false}
         ]
     },
     {
+        id : 1,
         title : "TODO",
         todo : [
             { task : "일본여행 블로그 쓰기", done : false},
@@ -13,6 +15,7 @@ export const TODO_DATA = [
         ]
     },
     {
+        id : 2,
         title : "SOPT",
         todo : [
             { task : "솝트 투두 과제", done : false},
@@ -21,6 +24,7 @@ export const TODO_DATA = [
         ]
     },
     {
+        id : 3,
         title : "HEALTH",
         todo : [
             { task : "숄더프레스", done : false},
