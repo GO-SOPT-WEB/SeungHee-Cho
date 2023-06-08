@@ -57,17 +57,19 @@ function refreshTodo() {
     }
 }
 
+function handleModalBtn(e) {
+    const categoryTag = e.target.parentNode.parentNode;
+    plusTodo(categoryTag.id, document.getElementById('add_todo').value);
+    document.getElementById('modal').style.display = 'none';
+}
+
 const plusBtns = document.getElementsByClassName('plus_btn');
 for (const plusBtn of plusBtns) {
     plusBtn.addEventListener('click', function(e){
         document.getElementById('modal').style.display = 'flex';
 
         const modalBtn = document.getElementById('modal_btn');
-        modalBtn.addEventListener('click', function() {
-            const categoryTag = e.target.parentNode.parentNode;
-            plusTodo(categoryTag.id, document.getElementById('add_todo').value);
-            document.getElementById('modal').style.display = 'none';
-        });
+        modalBtn.addEventListener('click', ()=>{handleModalBtn(e)});
 
     });
 }
