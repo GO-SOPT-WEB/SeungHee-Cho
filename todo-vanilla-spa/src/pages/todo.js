@@ -1,9 +1,9 @@
 import "../style/todo.css";
-import { todo } from "../utils/todoutli.js";
+import { todoUtil } from "../utils/todoutil.js";
 
 
 function Todo($container) {
-    todo();
+    todoUtil();
     this.$container = $container;
 
     this.render = () => {
