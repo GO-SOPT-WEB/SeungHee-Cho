@@ -35,6 +35,19 @@ function createCategory(data) {
     categoryImg.src = "./img/plus.png";
     categoryImg.alt = "할일 추가 버튼";
 
+    categoryImg.addEventListener('click', function(e){
+        document.getElementById('modal').style.display = 'flex';
+        document.getElementById('add_todo').focus();
+        
+        const modalBtn = document.getElementById('modal_btn');
+        modalBtn.addEventListener('click', ()=>{
+            const categoryTagId = e.target.parentNode.parentNode.id;
+            const todoList = [...todoData[categoryTagId[categoryTagId.length-1]-1].todo];  // 복사 
+            const userValue = document.getElementById('add_todo').value;
+            handleModalBtn(categoryTagId, todoList, userValue)});
+
+    });
+
     const categoryHeader = document.createElement('header');
     categoryHeader.className = 'category_title';
     categoryHeader.appendChild(categoryH1);
@@ -48,7 +61,7 @@ function createCategory(data) {
     return categoryItem;
 }
 
-function createTodo(index, todo, todoindex) {
+function createTodo(index, todo, todoindex) {   // index: 카테고리 인덱스(1~), todo : 내용, todoindex : 투두 인덱스 (1~)
     const todoitem = document.createElement('form');
     const todoCheckbox = document.createElement('input');
     const todoLabel = document.createElement('label');
@@ -94,10 +107,12 @@ function refreshTodo() {
     }
 
     // 2. 카테고리 내 할일 배열 구현
-    for (let i = 1; i<=todoData.length; i++) {
-        for (let j = 0; j < todoData[i-1].todo.length; j++) {
-            const oneTodo = createTodo(i, todoData[i-1].todo[j].task, j+1);
-            document.getElementById(`category${i}`).appendChild(oneTodo);
+    for (const i of todoData) {
+        let todoIdx = 1;
+        for (const j of i.todo) {
+            const oneTodo = createTodo(i.id+1, j.task, todoIdx);
+            document.getElementById(`category${i.id+1}`).appendChild(oneTodo);
+            todoIdx++;
         }
     }
 }
@@ -108,7 +123,6 @@ function handleModalBtn(categoryTagId, todoList, userValue) {
     for (const i of todoList) {
         values.push(i.task);
     }
-    console.log(values);
 
     if (values.includes(userValue)) {
         console.log("중복된 할일은 추가할 수 없습니다.");
@@ -118,21 +132,6 @@ function handleModalBtn(categoryTagId, todoList, userValue) {
     document.getElementById('modal').style.display = 'none';
 }
 
-const plusBtns = document.getElementsByClassName('plus_btn');
-for (const plusBtn of plusBtns) {
-    plusBtn.addEventListener('click', function(e){
-        document.getElementById('modal').style.display = 'flex';
-        document.getElementById('add_todo').focus();
-        
-        const modalBtn = document.getElementById('modal_btn');
-        modalBtn.addEventListener('click', ()=>{
-            const categoryTagId = e.target.parentNode.parentNode.id;
-            const todoList = [...todoData[categoryTagId[categoryTagId.length-1]-1].todo];  // 복사 
-            const userValue = document.getElementById('add_todo').value;
-            handleModalBtn(categoryTagId, todoList, userValue)});
-
-    });
-}
 
 refreshTodo();
 
