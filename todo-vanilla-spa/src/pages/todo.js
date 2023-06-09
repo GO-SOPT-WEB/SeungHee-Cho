@@ -1,4 +1,9 @@
+import "../style/todo.css";
+import { todo } from "../utils/todoutli.js";
+
+
 function Todo($container) {
+    todo();
     this.$container = $container;
 
     this.render = () => {

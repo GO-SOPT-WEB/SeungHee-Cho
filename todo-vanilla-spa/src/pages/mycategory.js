@@ -1,4 +1,9 @@
+import "../style/mycategory.css";
+import { mycategory } from "../utils/mycategoryutil.js";
+
+
 function MyCategory($container) {
+    mycategory();
     this.$container = $container;
 
     this.render = () => {
