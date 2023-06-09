@@ -1,12 +1,14 @@
 import {TODO_DATA} from './constants/todoData.js';
 
+let todoData = [];
 
 function refreshCal() {
     const selectedLeft = document.getElementById('selected_left');
     let leftCount = 0;
 
     // 'done:false' 인 task의 개수 
-    for (const item of TODO_DATA) {
+    
+    for (const item of todoData) {
         for (const task of item.todo) {
             leftCount = task.done? leftCount: leftCount+1; 
         }
@@ -24,7 +26,7 @@ function createTodo(index, todo, todoindex) {
     todoCheckbox.type = "checkbox";
     todoCheckbox.id = `category${index}_task${todoindex}`; 
     todoCheckbox.addEventListener('change', function(e) {
-        TODO_DATA[index-1].todo[todoindex-1].done = e.target.checked? true : false;
+        todoData[index-1].todo[todoindex-1].done = e.target.checked? true : false;
         refreshCal();
     });
 
@@ -42,16 +44,22 @@ function createTodo(index, todo, todoindex) {
 function plusTodo(category, todo) { //category : article 태그의 id, todo : 추가하고자하는 할일 text
     const todobox = document.getElementById(category);
     const index = category[category.length-1]; //category가 몇번째 TODO_DATA에서 몇번째 index인지 
-    todobox.appendChild(createTodo(index,todo, TODO_DATA[index-1].todo.length+1));
+    todobox.appendChild(createTodo(index,todo, todoData[index-1].todo.length+1));
 
-    TODO_DATA[index-1].todo.push({task : todo, done: false});
+    todoData[index-1].todo.push({task : todo, done: false});
     refreshCal();  
 }
 
 function refreshTodo() {
-    for (let i = 1; i<=TODO_DATA.length; i++) {
-        for (let j = 0; j < TODO_DATA[i-1].todo.length; j++) {
-            const oneTodo = createTodo(i, TODO_DATA[i-1].todo[j].task, j+1);
+    // 최초 localStorage 세팅 
+    localStorage.getItem("todo_data") === null &&
+        localStorage.setItem("todo_data", JSON.stringify(TODO_DATA)); 
+    todoData = JSON.parse(localStorage.getItem("todo_data")); 
+
+
+    for (let i = 1; i<=todoData.length; i++) {
+        for (let j = 0; j < todoData[i-1].todo.length; j++) {
+            const oneTodo = createTodo(i, todoData[i-1].todo[j].task, j+1);
             document.getElementById(`category${i}`).appendChild(oneTodo);
         }
     }
@@ -82,7 +90,7 @@ for (const plusBtn of plusBtns) {
         const modalBtn = document.getElementById('modal_btn');
         modalBtn.addEventListener('click', ()=>{
             const categoryTagId = e.target.parentNode.parentNode.id;
-            const todoList = [...TODO_DATA[categoryTagId[categoryTagId.length-1]-1].todo];  // 복사 
+            const todoList = [...todoData[categoryTagId[categoryTagId.length-1]-1].todo];  // 복사 
             const userValue = document.getElementById('add_todo').value;
             handleModalBtn(categoryTagId, todoList, userValue)});
 

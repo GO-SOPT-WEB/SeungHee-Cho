@@ -5,6 +5,7 @@ function setList() {
         const item = document.createElement('p');
         item.className = 'draggable';
         item.draggable = true;
+        item.id = el.id;    
         item.textContent = el.title;    // 카테고리 글자 추가 
         document.getElementById('category_list').appendChild(item);
     }
@@ -32,6 +33,10 @@ container.addEventListener("dragover", e => {
     } else {
         container.insertBefore(draggable, afterElement);
     }
+});
+container.addEventListener("dragend", e => {
+    // local Storage에 바뀐 카테고리 순서 저장 
+    console.log(container); 
 });
 
 function getDragAfterElement(container, y) {
