@@ -21,7 +21,6 @@ function MyCategory($container) {
                     <div class="btntext">MY</div>
                 </nav>
             </footer>
-            <script type="module" src="mycategory.js"></script>
         </body>
         `;
     };
