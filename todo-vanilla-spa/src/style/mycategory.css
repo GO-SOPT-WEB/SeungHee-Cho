@@ -1,0 +1,42 @@
+.my_body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.my_wrapper {
+    
+    width: 80%;
+    margin-top: 30%;
+    padding: 1rem;
+
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0.5rem 0.5rem 0.3rem gray;
+
+    color: black;
+    text-align: center;
+}
+
+.my_title {
+    font-size: 1.5rem;
+    margin: 0.5rem;
+}
+
+#category_list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+#category_list > p {
+    display: inline;
+    
+    padding: 0.6rem;
+    margin: 0.5rem;
+
+    background-color:antiquewhite;
+    border-radius: 0.5rem;
+    box-shadow: 0.2rem 0.2rem 0.2rem gray;
+
+
+}

@@ -1,0 +1,229 @@
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+
+body {
+    width:390px;
+    height:844px; 
+    /* iphone 12pro 기준 */
+
+    background-color:black;
+
+    color: white;
+    font-size: 1.2rem;
+    font-family: 'Poor Story', cursive;
+}
+
+header {
+
+    padding: 2rem;
+
+    font-size: 2rem;
+    text-align: center;
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 1.3rem;
+
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 7px 7px 5px gray;
+
+    color: black;
+    text-align: center;
+}
+
+#calendar .day_container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.heart {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    position:relative;
+
+    font-size: 2rem;
+
+    cursor: pointer;
+}
+
+.left_task_count {
+    position: absolute;
+
+    padding-bottom: 0.3rem;
+
+    font-size:0.8rem;
+}
+
+#selected_date {
+    color:rgb(204, 153, 0);
+}
+
+#todolist {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 1.2rem;
+
+    height: 50vh;
+    margin:1.5rem;
+}
+
+.todobox {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.category_title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    width: fit-content;
+    padding: 0.5rem;
+    margin-top: 1rem;
+
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
+
+    color: black;
+}
+
+.todobox:nth-child(1)>.category_title {
+    background-color: rgb(230, 243, 254);
+}
+.todobox:nth-child(2)>.category_title {
+    background-color: rgb(203, 231, 255);
+}
+.todobox:nth-child(3)>.category_title {
+    background-color: rgb(164, 213, 255);
+}
+.todobox:nth-child(4)>.category_title {
+    background-color: rgb(152, 207, 255);
+}
+
+.category_title > h1 {
+    font-size: 1.2rem;
+}
+
+.category_title > img {
+    width:1.3rem;
+
+    cursor: pointer;
+}
+
+input {
+    display: none;
+}
+
+label {
+    cursor: pointer;
+}
+
+input ~ label::before {
+    content: '🌑 ';
+}
+
+input:checked ~ label::before {
+    content: '🌝 ';
+}
+input:checked ~ label {
+    color: gray;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    position: fixed;
+    bottom: 0;
+
+    height: 10vh;
+    width: 100%;
+    padding-bottom: 2rem;
+}
+
+.footer_btn {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+
+    width: 5rem;
+    padding: 0.5rem;
+
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 7px 7px 5px gray;
+
+    cursor: pointer;
+}
+
+.btnimg {
+    width: 3rem;
+}
+
+.btntext {
+    color: black;
+}
+
+#modal {
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    width: 390px;
+    height: 100%;
+    
+    background: rgba(0, 0, 0, 0.624);
+    border-radius: 10px;
+    
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+#modal_window {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    width: 40%;
+    height: 15%;
+
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 0.7rem;
+
+    color: black;
+}
+
+input[type="text"] {
+    display: block;
+
+    width: 70%;
+    margin-top: 0.5rem;
+}
+
+#modal_btn {
+    margin-top: 0.5rem;
+    padding : 0.5rem;
+
+    border-radius: 0.5rem;
+}
