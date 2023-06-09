@@ -1,7 +1,13 @@
 import { TODO_DATA } from "./constants/todoData.js";
 
+let todoData = [];
+
 function setList() {
-    for (const el of TODO_DATA) {
+    localStorage.getItem("todo_data") === null &&
+        localStorage.setItem("todo_data", JSON.stringify(TODO_DATA)); 
+    todoData = JSON.parse(localStorage.getItem("todo_data"));
+
+    for (const el of todoData) {
         const item = document.createElement('p');
         item.className = 'draggable';
         item.draggable = true;
@@ -36,7 +42,12 @@ container.addEventListener("dragover", e => {
 });
 container.addEventListener("dragend", e => {
     // local Storage에 바뀐 카테고리 순서 저장 
-    console.log(container); 
+    const tempArr = [];     // 새로이 정렬된 데이터들의 배열 
+    for (const el of container.childNodes) {
+        tempArr.push(TODO_DATA[el.id]);
+    }
+    localStorage.setItem("todo_data", JSON.stringify(tempArr)); 
+    console.log("set!");
 });
 
 function getDragAfterElement(container, y) {

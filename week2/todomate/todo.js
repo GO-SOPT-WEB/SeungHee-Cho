@@ -55,6 +55,7 @@ function refreshTodo() {
     localStorage.getItem("todo_data") === null &&
         localStorage.setItem("todo_data", JSON.stringify(TODO_DATA)); 
     todoData = JSON.parse(localStorage.getItem("todo_data")); 
+    console.log("new", todoData);
 
 
     for (let i = 1; i<=todoData.length; i++) {
