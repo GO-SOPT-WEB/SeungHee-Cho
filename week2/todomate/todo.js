@@ -77,7 +77,8 @@ const plusBtns = document.getElementsByClassName('plus_btn');
 for (const plusBtn of plusBtns) {
     plusBtn.addEventListener('click', function(e){
         document.getElementById('modal').style.display = 'flex';
-
+        document.getElementById('add_todo').focus();
+        
         const modalBtn = document.getElementById('modal_btn');
         modalBtn.addEventListener('click', ()=>{
             const categoryTagId = e.target.parentNode.parentNode.id;
