@@ -17,6 +17,36 @@ function refreshCal() {
     selectedLeft.textContent = leftCount;
 }
 
+function createCategory(data) {  
+    /*
+        <article class="todobox" id="category1">
+            <header class="category_title">
+                <h1>SCHEDULE</h1>
+                <img class="plus_btn" src="./img/plus.png" alt="할일 추가 버튼"/>
+            </header>
+        </article>
+    */
+
+    const categoryH1 = document.createElement('h1');
+    categoryH1.textContent = data.title;
+
+    const categoryImg = document.createElement('img');
+    categoryImg.className = 'plus_btn';
+    categoryImg.src = "./img/plus.png";
+    categoryImg.alt = "할일 추가 버튼";
+
+    const categoryHeader = document.createElement('header');
+    categoryHeader.className = 'category_title';
+    categoryHeader.appendChild(categoryH1);
+    categoryHeader.appendChild(categoryImg);
+
+    const categoryItem = document.createElement('article');
+    categoryItem.className = 'todobox';
+    categoryItem.id = `category${data.id+1}`
+    categoryItem.appendChild(categoryHeader);
+
+    return categoryItem;
+}
 
 function createTodo(index, todo, todoindex) {
     const todoitem = document.createElement('form');
@@ -57,7 +87,13 @@ function refreshTodo() {
     todoData = JSON.parse(localStorage.getItem("todo_data")); 
     console.log("new", todoData);
 
+    // 1. 카테고리 html 구현
+    for (const el of todoData) {
+        const oneCategory = createCategory(el);
+        document.getElementById('todolist').appendChild(oneCategory);
+    }
 
+    // 2. 카테고리 내 할일 배열 구현
     for (let i = 1; i<=todoData.length; i++) {
         for (let j = 0; j < todoData[i-1].todo.length; j++) {
             const oneTodo = createTodo(i, todoData[i-1].todo[j].task, j+1);
