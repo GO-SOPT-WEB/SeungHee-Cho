@@ -129,11 +129,11 @@ label {
 }
 
 input ~ label::before {
-    content: '◻️ ';
+    content: '🌑 ';
 }
 
 input:checked ~ label::before {
-    content: '☑️ ';
+    content: '🌝 ';
 }
 input:checked ~ label {
     color: gray;
