@@ -9,6 +9,8 @@ const useGetWeather = (range, area) => {
     const [error, setError] = useState(false);
 
     const getWeekWeather = () => {
+        setLoading(true);
+        
         if (range === "week") {
             axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${area}&appid=${import.meta.env.VITE_APP_WEATHER}&units=metric`)
             .then(response => {
@@ -31,12 +33,10 @@ const useGetWeather = (range, area) => {
     }
 
     useEffect(() => {
-        setLoading(true);
         getWeekWeather();
     }, [])
 
     useEffect(() => {
-        setLoading(true);
         getWeekWeather();
     }, [area])
 
