@@ -9,8 +9,9 @@ const WeekCard = () => {
 
   const {area} = useParams();
   const { dataList, loading, error } = useGetWeather("week", area);
+  const imgsrc = WEATER_TYPE.filter(item => weather && (item.description === weather[0].description))[0]?.imgURL;
 
-  return (
+  return (    
     <>
       {error ? <ErrorLayout/> :  (
         dataList && 
@@ -18,7 +19,7 @@ const WeekCard = () => {
           loading? <Skeleton key={dt_txt}/> : (
           <St.CardWrapper key={dt_txt}>
             <h1>{dt_txt.slice(5,10)}</h1>
-            <img src={WEATER_TYPE.filter(item => weather && (item.description === weather[0].description))[0]?.imgURL}/>
+            <img src={imgsrc}/>
             <St.CardText>
               <p>온도</p>
               <p>{main.temp}</p>
