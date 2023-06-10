@@ -1,7 +1,11 @@
-import MainPage from "./pages/main";
 import Error404 from "./pages/error404";
+import Todo from "./pages/todo";
+import MyCategory from "./pages/mycategory";
 
-const ROUTE_LIST = [{ path: "/", element: MainPage }];
+const ROUTE_LIST = [
+    { path: "/", element: Todo },
+    { path: "/mycategory", element: MyCategory },
+];
 
 function App($container) {
     this.$container = $container;

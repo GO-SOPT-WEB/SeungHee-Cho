@@ -3,7 +3,6 @@ import { myCategoryUtil } from "../utils/mycategoryutil.js";
 
 
 function MyCategory($container) {
-    myCategoryUtil();
     this.$container = $container;
 
     this.render = () => {
@@ -17,11 +16,11 @@ function MyCategory($container) {
                 <section id="category_list"></section>
             </main>
             <footer>
-                <nav class="footer_btn" onclick="location.href='todo.html'">
+                <nav class="footer_btn" onclick="location.href='/'">
                     <img class="btnimg" src="./img/home.png" alt="달력 메뉴 버튼" />
                     <div class="btntext">달력</div>
                 </nav>
-                <nav class="footer_btn" onclick="location.href='mycategory.html'">
+                <nav class="footer_btn" onclick="location.href='/mycategory'">
                     <img class="btnimg" src="./img/my.png" alt="마이 메뉴 버튼"/>
                     <div class="btntext">MY</div>
                 </nav>
@@ -30,5 +29,7 @@ function MyCategory($container) {
         `;
     };
     this.render();
+    myCategoryUtil();
+
 }
 export default MyCategory;

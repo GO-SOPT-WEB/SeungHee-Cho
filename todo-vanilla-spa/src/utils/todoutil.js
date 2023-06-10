@@ -1,4 +1,4 @@
-import {TODO_DATA} from './constants/todoData.js';
+import {TODO_DATA} from '../constants/todoData.js';
 
 export const todoUtil = () => {
     let todoData = [];
@@ -18,6 +18,21 @@ export const todoUtil = () => {
         selectedLeft.textContent = leftCount;
     }
 
+    // 대체왜??? 여러번 호출???
+    function handleModalBtn(categoryTagId, todoList, userValue) {
+        const values = [];
+        for (const i of todoList) {
+            values.push(i.task);
+        }
+
+        if (values.includes(userValue)) {
+            console.log("중복된 할일은 추가할 수 없습니다.");
+        } else {
+            plusTodo(categoryTagId, userValue);
+        }
+        document.getElementById('modal').style.display = 'none';
+    }
+
     function createCategory(data) {  
         /*
             <article class="todobox" id="category1">
@@ -33,7 +48,7 @@ export const todoUtil = () => {
 
         const categoryImg = document.createElement('img');
         categoryImg.className = 'plus_btn';
-        categoryImg.src = "./img/plus.png";
+        categoryImg.src = "/img/plus.png";
         categoryImg.alt = "할일 추가 버튼";
 
         categoryImg.addEventListener('click', function(e){
@@ -104,7 +119,7 @@ export const todoUtil = () => {
         // 1. 카테고리 html 구현
         for (const el of todoData) {
             const oneCategory = createCategory(el);
-            document.getElementById('todolist').appendChild(oneCategory);
+            document.getElementById('todolist')?.appendChild(oneCategory);
         }
 
         // 2. 카테고리 내 할일 배열 구현
@@ -112,27 +127,11 @@ export const todoUtil = () => {
             let todoIdx = 1;
             for (const j of i.todo) {
                 const oneTodo = createTodo(i.id+1, j.task, todoIdx);
-                document.getElementById(`category${i.id+1}`).appendChild(oneTodo);
+                document.getElementById(`category${i.id+1}`)?.appendChild(oneTodo);
                 todoIdx++;
             }
         }
     }
-
-    // 대체왜??? 여러번 호출???
-    function handleModalBtn(categoryTagId, todoList, userValue) {
-        const values = [];
-        for (const i of todoList) {
-            values.push(i.task);
-        }
-
-        if (values.includes(userValue)) {
-            console.log("중복된 할일은 추가할 수 없습니다.");
-        } else {
-            plusTodo(categoryTagId, userValue);
-        }
-        document.getElementById('modal').style.display = 'none';
-    }
-
 
     refreshTodo();
 

@@ -3,7 +3,6 @@ import { todoUtil } from "../utils/todoutil.js";
 
 
 function Todo($container) {
-    todoUtil();
     this.$container = $container;
 
     this.render = () => {
@@ -93,19 +92,20 @@ function Todo($container) {
             </main>
             
             <footer>
-                <nav class="footer_btn" onclick="location.href='todo.html'">
-                    <img class="btnimg" src="./img/home.png" alt="달력 메뉴 버튼" />
+                <a href="/" class="footer_btn">
+                    <img class="btnimg" src="/img/home.png" alt="달력 메뉴 버튼" />
                     <div class="btntext">달력</div>
-                </nav>
-                <nav class="footer_btn" onclick="location.href='mycategory.html'">
-                    <img class="btnimg" src="./img/my.png" alt="마이 메뉴 버튼"/>
+                </a>
+                <a href="/mycategory" class="footer_btn">
+                    <img class="btnimg" src="/img/my.png" alt="마이 메뉴 버튼"/>
                     <div class="btntext">MY</div>
-                </nav>
-
+                </a>
             </footer>
         </body>
     `;
     };
     this.render();
+    todoUtil();
+
 }
 export default Todo;
