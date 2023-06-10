@@ -21,7 +21,8 @@ const SearchBar = () => {
         <St.InputBox 
             placeholder = "영어로 도시명 검색 (ex-seoul)"
             value = {area}
-            onChange = {(e)=>setArea(e.target.value)}/>
+            onChange = {(e)=>setArea(e.target.value)}
+            onKeyPress={(e)=> (e.key === 'Enter') && setArea(e.target.value)}/>
         <St.Button onClick={()=>navigate(`/${range}/${area}`)}>
             날씨 검색
         </St.Button>
