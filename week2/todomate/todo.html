@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +9,20 @@
     <link rel="stylesheet" href="todo.css">
 </head>
 <body>
+    <section id="modal">
+        <div id="modal_window">
+            <h1 id="modal_title">할일 추가</h1>
+            <input type="text" id="add_todo" autofocus >
+            <button id="modal_btn">ADD</button>
+        </div>
+    </section>
+
     <header>
         <h1>✨ WEB TO DO MATE ✨</h1>
     </header>
 
     <main>
+
         <section id="calendar">
             <ul class="day_container">
                 <li class="day">월</li>
@@ -64,7 +73,7 @@
                 <li class="day">토</li>
                 <li class="heart">
                     <i>💛</i>
-                    <div class="left_task_count">9</div>
+                    <div class="left_task_count" id="selected_left">9</div>   
                 </li>
                 <li id="selected_date">8</li>
             </ul>
@@ -80,83 +89,20 @@
 
         </section>
 
-        <section id="todolist">
-            <article class="todobox">
-                <header class="category_title">
-                    <h1>SCHEDULE</h1>
-                    <img src="./img/plus.png" alt="할일 추가 버튼"/>
-                </header>
-                <form class="todoitem">
-                    <input type="checkbox" id="category1_task1">
-                    <label for="category1_task1">늘어지지 말고 카공가기</label>
-                </form>
-            </article>
-
-            <article class="todobox">
-                <header class="category_title">
-                    <h1>TODO</h1>
-                    <img src="./img/plus.png" alt="할일 추가 버튼"/>
-                </header>
-                <form class="todoitem">
-                    <input type="checkbox" id="category2_task1">
-                    <label for="category2_task1">일본여행 블로그 쓰기</label>
-                </form>
-                <form class="todoitem">
-                    <input type="checkbox" id="category2_task2">
-                    <label for="category2_task2">오늘자 일기 쓰기</label>
-                </form>
-            </article>
-
-            <article class="todobox">
-                <header class="category_title">
-                    <h1>SOPT</h1>
-                    <img src="./img/plus.png" alt="할일 추가 버튼"/>
-                </header>
-                <form class="todoitem">
-                    <input type="checkbox" id="category3_task1">
-                    <label for="category3_task1">솝트 투두 과제</label>
-                </form>
-                <form class="todoitem">
-                    <input type="checkbox" id="category3_task2">
-                    <label for="category3_task2">솝트 생각 과제</label>
-                </form>
-                <form class="todoitem">
-                    <input type="checkbox" id="category3_task3">
-                    <label for="category3_task3">자스 스터디 과제</label>
-                </form>
-            </article>
-
-            <article class="todobox">
-                <header class="category_title">
-                    <h1>HEALTH</h1>
-                    <img src="./img/plus.png" alt="할일 추가 버튼"/>
-                </header>
-                <form class="todoitem">
-                    <input type="checkbox" id="category4_task1">
-                    <label for="category4_task1">숄더프레스</label>
-                </form>
-                <form class="todoitem">
-                    <input type="checkbox" id="category4_task2">
-                    <label for="category4_task2">사레레</label>
-                </form>
-                <form class="todoitem">
-                    <input type="checkbox" id="category4_task3">
-                    <label for="category4_task3">벤트오버</label>
-                </form>
-            </article>
-        </section>
+        <section id="todolist"></section>
     </main>
     
     <footer>
-        <nav class="footer_btn">
+        <nav class="footer_btn" onclick="location.href='todo.html'">
             <img class="btnimg" src="./img/home.png" alt="달력 메뉴 버튼" />
             <div class="btntext">달력</div>
         </nav>
-        <nav class="footer_btn">
+        <nav class="footer_btn" onclick="location.href='mycategory.html'">
             <img class="btnimg" src="./img/my.png" alt="마이 메뉴 버튼"/>
             <div class="btntext">MY</div>
         </nav>
 
     </footer>
+    <script type="module" src="todo.js"></script>
 </body>
 </html>
