@@ -6,8 +6,6 @@ export const todoUtil = () => {
     function refreshCal() {
         const selectedLeft = document.getElementById('selected_left');
         let leftCount = 0;
-
-        // 'done:false' 인 task의 개수 
         
         for (const item of todoData) {
             for (const task of item.todo) {
@@ -18,16 +16,13 @@ export const todoUtil = () => {
         selectedLeft.textContent = leftCount;
     }
 
-    // 대체왜??? 여러번 호출???
     function handleModalBtn(categoryTagId, todoList, userValue) {
         const values = [];
         for (const i of todoList) {
             values.push(i.task);
         }
 
-        if (values.includes(userValue)) {
-            console.log("중복된 할일은 추가할 수 없습니다.");
-        } else {
+        if (!values.includes(userValue)) {
             plusTodo(categoryTagId, userValue);
         }
         document.getElementById('modal').style.display = 'none';
