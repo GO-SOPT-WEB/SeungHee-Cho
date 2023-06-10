@@ -18,3 +18,5 @@
 |3주차|상태관리|[`생각`](https://github.com/GO-SOPT-WEB/SeungHeeCho/pull/8)|
 |4주차|날씨예보|[`기본` `심화`](https://github.com/GO-SOPT-WEB/SeungHeeCho/pull/10)|
 |4주차|drilling|[`생각`](https://github.com/GO-SOPT-WEB/SeungHeeCho/pull/9)|
+|7주차|리팩토링|[`최종`](https://github.com/GO-SOPT-WEB/SeungHeeCho/pull/11)|
+  

@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width:100vw;
+    height:100vh;
+
+    background-color: black;
+
+    font-family: 'Song Myung', serif;
+    font-size: 2rem;
+}
+
+.addCard_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    width:60vw;
+    padding: 2rem;
+
+    border-radius: 1rem;
+    background-color: rgb(255, 209, 70);
+
+    color: black;
+
+}
+
+form {
+    text-align: center;
+
+    width: 80%;
+
+    font-size: 1.5rem;
+}
+
+form > div {
+    display: flex;
+    justify-content: space-between;
+
+    margin: 2rem;
+}
+
+form > div > nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+#img_container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    width:8rem;
+    height:8rem;
+
+    background-color:gray;
+    color: white;
+
+    font-size: 1rem;
+}
+
+button {
+
+    padding: 1rem 1.5rem;
+
+    border-radius: 1rem;
+    background-color: black;
+    color: rgb(255, 235, 175);
+
+    font-family: 'Song Myung', serif;
+    font-size: 1.2rem;
+}

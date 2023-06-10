@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>새 상품 추가</title>
+
+    <link rel="stylesheet" href="addCard.css">
+    <script type="module" defer src="addCard.js"></script>
+</head>
+<body>
+    <section class="addCard_wrapper">
+        <header>🍗 메뉴를 추가해보세요 🍗</header>
+        <form>
+            <div>
+                <label for="menu_name">메뉴명</label>
+                <input type="text" id="menu_name">
+            </div>
+            <div>
+                <label for="menu_tag">해시태그 (,로구분) </label>
+                <input type="text" id="menu_tag">
+            </div>
+            <div>
+                <label for="menu_img">카테고리</label>
+                <select id="menu_category">
+                    <option default>==선택==</option>
+                    <option value="양념">양념</option>
+                    <option value="치킨킹">치킨킹</option>
+                    <option value="구이">구이</option>
+                </select>
+            </div>
+            <div>
+                <nav>
+                    <label for="menu_img">메뉴 이미지</label>
+                    <input type="file" id="menu_img" required>
+                </nav>
+                <div id="img_container">no<br/>image</div>
+            </div>
+        </form>
+        <button type="button" id="add_btn">메뉴추가</button>
+    </section>
+</body>
+</html>
