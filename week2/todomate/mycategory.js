@@ -1,4 +1,4 @@
-import { TODO_DATA } from "../constants/todoData.js";
+import {TODO_DATA} from './constants/todoData.js';
 
 let todoData = [];
 
